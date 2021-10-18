@@ -1,4 +1,4 @@
-# Java Full Stack Environment Setup Guide
+# Java Environment Setup Guide
 ---
 
 ## Purpose
@@ -36,13 +36,16 @@ Neither method is more "correct" than the other. You should choose the method of
 
 A *package manager* is a command line tool that allows you to install and manage software. You can use a package manager to install most of the software listed here.
 
-The package manager that we'll be using for this guide is called "Chocolatey". It's a command-line installer for Windows, which means that you'll have to be running the command line or git bash as administrator in order to use this tool. You'll also need PowerShell v2+ (or a later version) installed.
+The package manager that we'll be using for this guide is called "Chocolatey". It's a command-line installer for Windows, which means that you'll have to be running the command line or git bash as administrator in order to use this tool. Chocolatey demands the following requirements:
+- Windows 7+ / Windows Server 2003+
+- PowerShell v2+ (minimum is v3 for install from this website due to TLS 1.2 requirement)
+- .NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)(minimum is 4.5 for install from this website due to TLS 1.2 requirement)
 
 **Note**: If you are not running Windows and still want to use a package manager, feel free to do so. You'll have to, however, know how to use your package manager of choice as there won't be instructions provided here since there are many package managers available. **If you do not wish to use a package manager, please skip to method 2.**
 
 ### Step 1: Install Chocolatey
 
-In order to use Chocolatey, you'll first have to install it. This installation requires that you have PowerShell v2+ or later.
+In order to use Chocolatey, you'll first have to install it.
 
 Please refer to Chocolatey's installation instructions here: [Chocolatey's official website](https://chocolatey.org/install). Once on the installation page, complete step 2.
 
@@ -52,26 +55,31 @@ Chocolatey v0.11.2
 Please run 'choco -?' or 'choco <command> -?' for help menu.
 
 ### Step 2: Installations
+Please note that chocolatey needs a terminal running with administrator priveledges to install packages. The below commands will not work if you dont.
 
 #### Install Java
 
-Now that you've installed Scoop and added some additional buckets for downloading software, open a new terminal and run the following command in order to install Java:
+Open a new terminal and run the following:
 
-    scoop install ojdkbuild8-full
+     choco install openjdk8
 
 Now verify that you have installed Java properly by typing this command:
 
      java -version
+     and 
+     javac -version
 
 #### Step 4: Install IntelliJ
 
-Skip down the manual install Step 3 for installation. 
+Open a new terminal and run the following:
+
+    choco install intellijidea-community
 
 #### Step 5: Install Maven
 
-In order to install Maven, run the following command in your terminal:
+Open a new terminal and run the following:
 
-    scoop install maven
+    choco install maven
 
 Verify that your Maven installation was successful by typing the following:
 
@@ -79,17 +87,17 @@ Verify that your Maven installation was successful by typing the following:
 
 #### Step 6: Install DBeaver
 
-In order to install DBeaver, run the following command in your terminal:
+Open a new terminal and run the following:
 
-    scoop install dbeaver
+    choco install dbeaver
 
 You can verify that you have installed DBeaver properly by searching for "DBeaver" in your Windows search bar.
 
 #### Step 7: Install Apache Tomcat
 
-In order to install Tomcat, run the following command in your terminal:
+Open a new terminal and run the following:
 
-    scoop install tomcat
+    choco install tomcat
 
 Verify that you have installed Tomcat properly by running the following command if you are using powershell as your terminal:
 
@@ -103,24 +111,25 @@ If the installation was successful, the directory to which you installed Tomcat 
 
 #### Step 8: Install Postman
 
-In order to install Postman, run the following command in your terminal:
+Open a new terminal and run the following:
 
-    scoop install postman
+    choco install postman
 
 Verify that the program was installed properly by searching for "Postman" in your windows search bar.
 
 #### Step 9: Install Visual Studio Code
 
-In order to install Visual Studio Code, run the following command in your terminal:
+Open a new terminal and run the following:
 
-    scoop install vscode
+    choco install vscode
 
 If the installation was successful, you should be able to search for "Visual Studio Code" in the Windows search bar.
 
 #### Step 10: Install Git
-While scoop can install Git we HIGHLY recommend a manual install as it allows you to also install some ease-of-life optional features. 
 
-You can find the manual install instructions in the next section: Step 1.
+Open a new terminal and run the following:
+
+choco install git
 
 
 ## Method 2: Manual Installation
